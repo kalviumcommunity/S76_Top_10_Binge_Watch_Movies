@@ -1,17 +1,22 @@
-require('dotenv').config(); 
-
-const express = require('express');
+// Import required modules
+require("dotenv").config(); // Load environment variables from .env
+const express = require("express");
+const mongoose = require("mongoose");
+const {connectDatabase,getConnection}=require('./database')
 const app = express();
-const port = process.env.PORT || 3000;
-const dotenv =require("dotenv");
-const connectDatabase = require('./database');
 
-app.get('/ping', (req, res) => {
-    res.send('Pong!');
+// Middleware to parse JSON
+app.use(express.json());
+connectDatabase()
+// Define a simple home route
+app.get("/", async (req, res) => {
+//   const dbStatus = mongoose.connection.readyState === 1 ? "Connected" : "Disconnected";
+  res.send(`Database connection status: ${getConnection()}`);
 });
 
-connectDatabase();
-
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
