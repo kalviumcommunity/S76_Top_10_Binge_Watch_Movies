@@ -12,6 +12,9 @@ app.use(express.json());
 // Connect to MongoDB
 connectDatabase();
 
+app.get("/", async (req, res) => {
+  res.send(`welcome to the server`);
+});
 // Define a simple home route to check DB status
 app.get("/", async (req, res) => {
   res.send(`Database Connection Status: ${getConnection()}`);
