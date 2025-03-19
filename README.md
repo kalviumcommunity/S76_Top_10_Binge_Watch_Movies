@@ -29,3 +29,6 @@ The "Top 10 Binge-Watch Movies" is a web app that allows users to explore a pers
 3. **Movie Recommendations**: Based on user preferences, the app will suggest movies they might like based on genres or ratings.
 4. **CRUD via API**: The backend will expose API endpoints to interact with the movie database. Frontend React components will communicate with the backend API to perform CRUD operations.
 
+## Backend Deployment
+https://s76-top-10-binge-watch-movies-12.onrender.com
+
