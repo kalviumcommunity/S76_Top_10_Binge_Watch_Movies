@@ -14,7 +14,7 @@ connectDatabase();
 
 // Define a simple home route to check DB status
 app.get("/", (req, res) => {
-  res.send(`Welcome to the server. Database Connection Status: ${getConnection()}`);
+  res.send(`Welcome to the Top 10 Binge-Watch Movies`);
 });
 
 // Define PORT from environment variables or default to 3000
