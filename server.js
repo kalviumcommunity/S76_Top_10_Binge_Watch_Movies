@@ -1,5 +1,5 @@
-// Import required modules
-require("dotenv").config(); // Load environment variables from .env
+// backend/server.js
+require("dotenv").config();  // Load environment variables from .env
 const express = require("express");
 const { connectDatabase, getConnection } = require("./database");
 
@@ -12,16 +12,13 @@ app.use(express.json());
 // Connect to MongoDB
 connectDatabase();
 
-app.get("/", async (req, res) => {
-  res.send(`welcome to the server`);
-});
 // Define a simple home route to check DB status
-app.get("/", async (req, res) => {
-  res.send(`Database Connection Status: ${getConnection()}`);
+app.get("/", (req, res) => {
+  res.send(`Welcome to the server. Database Connection Status: ${getConnection()}`);
 });
 
 // Define PORT from environment variables or default to 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 // Start the server
 app.listen(PORT, () => {
